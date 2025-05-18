@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Work Study | PC Gamer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-text">GAME WORK STUDY</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#pcs">PC</a></li>
+                    <li><a href="componentes.html">Componentes</a></li>
+                    <li><a href="#configurador">Configurador</a></li>
+                    <li id="dashboard-link" style="display: none;"><a href="dashboard.html">Dashboard</a></li>
+                    <li class="contato-hover">
+                        <a href="#contato">Contato</a>
+                        <div class="contato-info">
+                            <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                            <p><strong>Email:</strong> suporte@gameworkstudy.com</p>
+                        </div>
+                    </li>
+                    <li id="login-link"><a href="#" class="login" onclick="openLoginModal()"><i class="fas fa-user"></i> Login</a></li>
+                    <li id="logout-link" style="display: none;"><a href="#" class="login" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="carrinho.html" class="cart"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">×</span>
+            <h2>Faça seu Cadastro</h2>
+            <form id="login-form">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="email" id="gmail" placeholder="Gmail" required>
+                <input type="text" id="cpf" placeholder="CPF" required>
+                <input type="number" id="idade" placeholder="Idade" required>
+                <input type="text" id="cep" placeholder="CEP" required>
+                <button type="submit" class="modal-button">Cadastrar</button>
+            </form>
+            <div id="dados-salvos" style="display: none; margin-top: 20px;">
+                <h3>Dados Salvos:</h3>
+                <p><strong>Nome:</strong> <span id="saved-nome"></span></p>
+                <p><strong>Gmail:</strong> <span id="saved-gmail"></span></p>
+                <p><strong>CPF:</strong> <span id="saved-cpf"></span></p>
+                <p><strong>Idade:</strong> <span id="saved-idade"></span></p>
+                <p><strong>CEP:</strong> <span id="saved-cep"></span></p>
+                <button onclick="logout()" class="modal-button" style="margin-top: 10px; background-color: #e74c3c;">Sair do Cadastro</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Logo Section -->
+    <section class="full-logo" id="home">
+        <div class="logo-container">
+            <img src="imagens/principal.webp" alt="Logo Game Work Study" class="logo-image">
+        </div>
+    </section>
+
+    <!-- PCs Section -->
+    <section id="pcs" class="pcs">
+        <div class="container">
+            <h2></h2>
+            <div class="pc-grid">
+                <!-- PC Zeus -->
+                <div class="pc-card">
+                    <div class="pc-image-container">
+                        <img src="imagens/Zeus.webp" alt="PC Gamer Zeus" class="pc-image">
+                    </div>
+                    <div class="pc-info">
+                        <h3>Zeus</h3>
+                        <p>Intel Core i9 14ª Geração, GeForce RTX 4090, 32GB DDR5, SSD NVMe 1TB. Ideal para jogos 4K.</p>
+                        <p class="price">A partir de R$ 35.000,00</p>
+                        <a href="zeus.html" class="card-button">Configurar Agora</a>
+                        <button class="add-to-cart" data-name="Zeus" data-price="35000.00">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- PC Hércules -->
+                <div class="pc-card">
+                    <div class="pc-image-container">
+                        <img src="imagens/Hércules.webp" alt="PC Gamer Hércules" class="pc-image">
+                    </div>
+                    <div class="pc-info">
+                        <h3>Hércules</h3>
+                        <p>Intel Core i7 14ª Geração, GeForce RTX 4070, 16GB DDR5, SSD NVMe 512GB. Perfeito para streaming.</p>
+                        <p class="price">A partir de R$ 20.000,00</p>
+                        <a href="hercules.html" class="card-button">Configurar Agora</a>
+                        <button class="add-to-cart" data-name="Hércules" data-price="20000.00">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- PC Prometheus -->
+                <div class="pc-card">
+                    <div class="pc-image-container">
+                        <img src="imagens/Prometheus.webp" alt="PC Gamer Prometheus" class="pc-image">
+                    </div>
+                    <div class="pc-info">
+                        <h3>Prometheus</h3>
+                        <p>Intel Core i5 14ª Geração, GeForce RTX 4060, 16GB DDR4, SSD 512GB. Ótimo custo-benefício.</p>
+                        <p class="price">A partir de R$10.000,00</p>
+                        <a href="prometheus.html" class="card-button">Configurar Agora</a>
+                        <button class="add-to-cart" data-name="Prometheus" data-price="10000.00">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configurator Section -->
+    <section id="configurador" class="configurator">
+        <div class="container">
+            <h2>Monte o PC dos Seus Sonhos</h2>
+            <p>Personalize cada componente com compatibilidade garantida e entrega rápida.</p>
+            <a href="configurador.html" class="cta-button">Comece a Montar</a>
+            <a href="componentes.html" class="cta-button">Comece a Montar</a>
+        </div>
+
+        <section class="avaliacao">
+            <h3>O que achou do nosso site?</h3>
+            <textarea placeholder="Deixe sua opinião..."></textarea>
+            <button class="cta-button enviar-avaliacao">Enviar</button>
+        </section>
+        <section class="sobre-gws">
+            <div class="container">
+                <h2>Sobre a GWS</h2>
+                <p>A Game Work Study (GWS) é uma empresa dedicada a oferecer os melhores computadores gamers do mercado, com desempenho de ponta e personalização completa. Fundada por apaixonados por games e tecnologia, nosso objetivo é entregar qualidade, performance e estilo para cada jogador.</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Game Work Study. Todos os direitos reservados.</p>
+            <ul>
+                <li class="privacy">
+                    <a href="#" class="privacy-link">Política de Privacidade</a>
+                    <span class="privacy-tooltip">Nós respeitamos sua privacidade e protegemos seus dados conforme a LGPD.</span>
+                </li>
+                <li><a href="mailto:suporte@gameworkstudy.com">Suporte</a></li>
+                <li><a href="https://instagram.com/gameworkstudy">Instagram</a></li>
+                <li><a href="https://twitter.com/gameworkstudy">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Funções para abrir e fechar o modal
+        function openLoginModal() {
+            document.getElementById('login-modal').style.display = 'flex';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').style.display = 'none';
+        }
+
+        // Função para logout
+        function logout() {
+            localStorage.clear();
+            updateNavBar();
+            document.getElementById('dados-salvos').style.display = 'none';
+            document.getElementById('login-form').reset();
+            alert('Você foi deslogado com sucesso!');
+            updateCartCount(); // Atualiza o contador do carrinho
+        }
+
+        // Função para atualizar a barra de navegação
+        function updateNavBar() {
+            const isLoggedIn = localStorage.getItem('nome');
+            document.getElementById('dashboard-link').style.display = isLoggedIn ? 'block' : 'none';
+            document.getElementById('login-link').style.display = isLoggedIn ? 'none' : 'block';
+            document.getElementById('logout-link').style.display = isLoggedIn ? 'block' : 'none';
+        }
+
+        // Função para atualizar a exibição do carrinho
+        function updateCartDisplay() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+
+            if (!cartItemsContainer) {
+                console.warn('Elemento #cart-items não encontrado!');
+                return;
+            }
+
+            cartItemsContainer.innerHTML = ''; // Limpa a área
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.textContent = `${item.name} - ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Função para atualizar o contador de itens no carrinho
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartLink = document.querySelector('.cart');
+            cartLink.dataset.count = cart.length;
+            cartLink.style.setProperty('--cart-count', `"${cart.length}"`);
+        }
+
+        // Salvamento dos dados do formulário
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Formulário de login submetido!');
+
+            try {
+                const nome = document.getElementById('nome').value;
+                const gmail = document.getElementById('gmail').value;
+                const cpf = document.getElementById('cpf').value;
+                const idade = document.getElementById('idade').value;
+                const cep = document.getElementById('cep').value;
+
+                localStorage.setItem('nome', nome);
+                localStorage.setItem('gmail', gmail);
+                localStorage.setItem('cpf', cpf);
+                localStorage.setItem('idade', idade);
+                localStorage.setItem('cep', cep);
+
+                document.getElementById('saved-nome').textContent = nome;
+                document.getElementById('saved-gmail').textContent = gmail;
+                document.getElementById('saved-cpf').textContent = cpf;
+                document.getElementById('saved-idade').textContent = idade;
+                document.getElementById('saved-cep').textContent = cep;
+
+                document.getElementById('dados-salvos').style.display = 'block';
+
+                closeLoginModal();
+                updateNavBar();
+            } catch (error) {
+                console.error('Erro ao processar o formulário:', error);
+            }
+        });
+
+        // Adiciona evento ao botão "Enviar" da seção de avaliação
+        document.querySelector('.enviar-avaliacao').addEventListener('click', function() {
+            console.log('Botão Enviar clicado!');
+            const reviewText = document.querySelector('.avaliacao textarea').value;
+
+            if (reviewText.trim() === '') {
+                alert('Por favor, escreva sua avaliação antes de enviar.');
+                return;
+            }
+
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.push({ text: reviewText, date: new Date().toLocaleString() });
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+            alert('Obrigado pela sua avaliação!');
+            document.querySelector('.avaliacao textarea').value = '';
+        });
+
+        // Carrega os dados salvos ao abrir a página
+        window.onload = function() {
+            if (localStorage.getItem('nome')) {
+                document.getElementById('saved-nome').textContent = localStorage.getItem('nome');
+                document.getElementById('saved-gmail').textContent = localStorage.getItem('gmail');
+                document.getElementById('saved-cpf').textContent = localStorage.getItem('cpf');
+                document.getElementById('saved-idade').textContent = localStorage.getItem('idade');
+                document.getElementById('saved-cep').textContent = localStorage.getItem('cep');
+                document.getElementById('dados-salvos').style.display = 'block';
+            }
+
+            // Adiciona eventos aos botões "Adicionar ao Carrinho"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log(`Botão clicado: ${this.getAttribute('data-name')}`);
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    console.log('Preço bruto:', this.getAttribute('data-price'));
+                    console.log('Preço convertido:', price);
+
+                    if (isNaN(price) || price <= 0) {
+                        console.error('Erro: preço inválido para', name);
+                        alert('Erro ao adicionar ao carrinho: preço inválido.');
+                        return;
+                    }
+
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const itemExists = cart.some(item => item.name === name);
+                    if (itemExists) {
+                        alert(`${name} já está no carrinho!`);
+                        return;
+                    }
+
+                    cart.push({ name, price });
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    console.log('Carrinho salvo:', cart);
+
+                    alert(`${name} foi adicionado ao carrinho!`);
+                    updateCartCount(); // Atualiza o contador do carrinho
+                });
+            });
+
+            // Atualiza o contador do carrinho ao carregar a página
+            updateCartCount();
+        };
+    </script>
+</body>
+</html>
